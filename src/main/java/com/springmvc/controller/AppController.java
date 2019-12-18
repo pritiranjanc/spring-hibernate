@@ -20,7 +20,6 @@ import com.springmvc.service.EmployeeService;
 
 
 @Controller
-@RequestMapping("/")
 public class AppController {
 
 	@Autowired
