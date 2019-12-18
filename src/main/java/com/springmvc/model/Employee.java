@@ -1,6 +1,7 @@
 package com.springmvc.model;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,17 +9,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.joda.time.LocalDate;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="EMPLOYEE")
+@Table(name="EMPLOYEE",uniqueConstraints={@UniqueConstraint(columnNames = {"SSN"} , name="UC_EMPLOYEE_SSN")})
 public class Employee {
 
 	@Id
@@ -30,10 +31,9 @@ public class Employee {
 	private String name;
 
 	@NotNull
-	@DateTimeFormat(pattern="dd/MM/yyyy") 
 	@Column(name = "JOINING_DATE", nullable = false)
-	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
-	private LocalDate joiningDate;
+	@Temporal(TemporalType.DATE)
+	private Date joiningDate;
 
 	@NotNull
 	@Digits(integer=8, fraction=2)
@@ -60,11 +60,11 @@ public class Employee {
 		this.name = name;
 	}
 
-	public LocalDate getJoiningDate() {
+	public Date getJoiningDate() {
 		return joiningDate;
 	}
 
-	public void setJoiningDate(LocalDate joiningDate) {
+	public void setJoiningDate(Date joiningDate) {
 		this.joiningDate = joiningDate;
 	}
 

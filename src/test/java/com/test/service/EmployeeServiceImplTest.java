@@ -10,9 +10,9 @@ import static org.mockito.Mockito.when;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-import org.joda.time.LocalDate;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -96,14 +96,14 @@ public class EmployeeServiceImplTest {
 		Employee e1 = new Employee();
 		e1.setId(1);
 		e1.setName("Axel");
-		e1.setJoiningDate(new LocalDate());
+		e1.setJoiningDate(new Date());
 		e1.setSalary(new BigDecimal(10000));
 		e1.setSsn("XXX111");
 		
 		Employee e2 = new Employee();
 		e2.setId(2);
 		e2.setName("Jeremy");
-		e2.setJoiningDate(new LocalDate());
+		e2.setJoiningDate(new Date());
 		e2.setSalary(new BigDecimal(20000));
 		e2.setSsn("XXX222");
 		
