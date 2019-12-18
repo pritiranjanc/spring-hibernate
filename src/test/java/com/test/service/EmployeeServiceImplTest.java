@@ -92,7 +92,7 @@ public class EmployeeServiceImplTest {
 	}
 	
 	
-	public List<Employee> getEmployeeList(){
+	private List<Employee> getEmployeeList(){
 		Employee e1 = new Employee();
 		e1.setId(1);
 		e1.setName("Axel");
