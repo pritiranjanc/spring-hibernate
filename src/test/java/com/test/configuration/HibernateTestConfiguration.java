@@ -9,25 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-/*
- * This class is same as real HibernateConfiguration class in sources.
- * Only difference is that method dataSource & hibernateProperties 
- * implementations are specific to Hibernate working with H2 database.
- */
 
 @Configuration
 @EnableTransactionManagement
 @ComponentScan({ "com.springmvc.dao" })
 public class HibernateTestConfiguration {
-
-	@Autowired
-	private Environment environment;
 
 	@Bean
 	public LocalSessionFactoryBean sessionFactory() {
