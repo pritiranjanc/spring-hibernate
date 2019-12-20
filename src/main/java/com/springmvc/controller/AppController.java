@@ -28,7 +28,7 @@ public class AppController {
 	@Autowired
 	MessageSource messageSource;
 
-	@RequestMapping(value = { "/", "/list" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/list" }, method = RequestMethod.GET)
 	public String listEmployees(ModelMap model) {
 		List<Employee> employees = service.findAllEmployees();
 		model.addAttribute("employees", employees);

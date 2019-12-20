@@ -2,66 +2,75 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <html>
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Employee Registration Form</title>
-
-<style>
-
-	.error {
-		color: #ff0000;
-	}
-</style>
-
+    <jsp:include page="../common.jsp"></jsp:include>
 </head>
 
-<body>
+<body style="margin-left:175px;">
 
-	<h2>Registration Form</h2>
+	<h3>Registration Form</h3>
  
 	<form:form method="POST" modelAttribute="employee">
 		<form:input type="hidden" path="id" id="id"/>
-		<table>
-			<tr>
-				<td><label for="name">Name: </label> </td>
-				<td><form:input path="name" id="name"/></td>
-				<td><form:errors path="name" cssClass="error"/></td>
-		    </tr>
-	    
-			<tr>
-				<td><label for="joiningDate">Joining Date: </label> </td>
-				<td><form:input path="joiningDate" id="joiningDate"/></td>
-				<td><form:errors path="joiningDate" cssClass="error"/></td>
-		    </tr>
-	
-			<tr>
-				<td><label for="salary">Salary: </label> </td>
-				<td><form:input path="salary" id="salary"/></td>
-				<td><form:errors path="salary" cssClass="error"/></td>
-		    </tr>
-	
-			<tr>
-				<td><label for="ssn">SSN: </label> </td>
-				<td><form:input path="ssn" id="ssn"/></td>
-				<td><form:errors path="ssn" cssClass="error"/></td>
-		    </tr>
-	
-			<tr>
-				<td colspan="3">
+		     
+		    <div class="row">
+				<div class="col-sm-2">Name: </div>
+				<div class="col-md-2">
+					<form:input path="name" id="name" cssClass="form-control"/>
+				</div>
+				<div class="col-md-4">
+					<form:errors path="name" cssClass="error"/>
+				</div>
+		   </div>
+	    <br/>
+		  <div class="row">
+				<div class="col-sm-2">Joining Date: </div>
+				<div class="col-md-2">
+				    <form:input path="joiningDate" id="joiningDate" cssClass="form-control"/>
+				</div>
+				<div class="col-md-4">
+					<form:errors path="joiningDate" cssClass="error"/>
+				</div>
+		   </div>
+	  <br/>
+			<div class="row">
+				<div class="col-sm-2">Salary: </div>
+				<div class="col-md-2">
+					<form:input path="salary" id="salary" cssClass="form-control"/>
+				</div>
+				<div class="col-md-4">
+					<form:errors path="salary" cssClass="error"/>
+				</div>
+		   </div>
+	    <br/>
+			<div class="row">
+				<div class="col-sm-2">SSN: </div>
+				<div class="col-md-2">
+					<form:input path="ssn" id="ssn" cssClass="form-control"/>
+				</div>
+				<div class="col-md-4">
+					<form:errors path="ssn" cssClass="error"/>
+				</div>
+		   </div>
+		 <br/>
+			<div class="row">
+			     <div class="col-md-1">
 					<c:choose>
 						<c:when test="${edit}">
-							<input type="submit" value="Update"/>
+							<input type="submit" value="Update" class="btn btn-success"/>
 						</c:when>
 						<c:otherwise>
-							<input type="submit" value="Register"/>
+							<input type="submit" value="Register" class="btn btn-success"/>
 						</c:otherwise>
 					</c:choose>
-				</td>
-			</tr>
-		</table>
+				</div>
+			</div>
 	</form:form>
 	<br/>
 	<br/>

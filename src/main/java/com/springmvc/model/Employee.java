@@ -17,6 +17,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="EMPLOYEE",uniqueConstraints={@UniqueConstraint(columnNames = {"SSN"} , name="UC_EMPLOYEE_SSN")})
@@ -30,7 +31,9 @@ public class Employee {
 	@Column(name = "NAME", nullable = false)
 	private String name;
 
+	
 	@NotNull
+	@DateTimeFormat(pattern= "dd/MM/yyyy")
 	@Column(name = "JOINING_DATE", nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date joiningDate;
@@ -41,7 +44,7 @@ public class Employee {
 	private BigDecimal salary;
 	
 	@NotEmpty
-	@Column(name = "SSN", unique=true, nullable = false)
+	@Column(name = "SSN",nullable = false)
 	private String ssn;
 
 	public int getId() {
