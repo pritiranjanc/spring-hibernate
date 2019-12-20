@@ -1,0 +1,29 @@
+@charset "ISO-8859-1";
+
+.list_employee{
+    width:80%;
+}
+
+.list_employee th{
+  	padding:5px;
+  	background-color: cornsilk;
+  	text-align: center;
+}
+
+.list_employee td{
+	padding:5px;
+	text-align:center;
+}
+
+.error{
+	color: #ff0000;
+}
+
+.container_body{
+	border:1px solid cornsilk;
+	border-radius: 5px;
+	width:60%;
+	height:auto;
+	padding:5px;
+	margin-left:20px;
+}
