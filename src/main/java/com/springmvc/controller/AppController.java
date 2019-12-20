@@ -1,7 +1,9 @@
 package com.springmvc.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -11,9 +13,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.springmvc.model.Employee;
 import com.springmvc.service.EmployeeService;
@@ -38,6 +43,7 @@ public class AppController {
 	@RequestMapping(value = { "/new" }, method = RequestMethod.GET)
 	public String newEmployee(ModelMap model) {
 		Employee employee = new Employee();
+		employee.setGender("M");
 		model.addAttribute("employee", employee);
 		model.addAttribute("edit", false);
 		return "registration";
@@ -99,6 +105,25 @@ public class AppController {
 	public String deleteEmployee(@PathVariable String ssn) {
 		service.deleteEmployeeBySsn(ssn);
 		return "redirect:/list";
+	}
+	
+	@ModelAttribute("testDesignationMap")
+	public Map<String,String> getDesignationMap() {
+		  Map<String,String> designationMap = new HashMap<String,String>();
+	      designationMap.put("SE","Software Engineer");
+	      designationMap.put("SSE","Senior Software Engineer");
+	      designationMap.put("TL","Team Lead");
+	      return designationMap;
+	}
+	
+	@RequestMapping(value = "/validatessn", method = RequestMethod.POST)
+	public @ResponseBody Boolean validateUserName(@RequestParam("ssn") String ssnValue,@RequestParam("id") Integer idValue) {
+		if(service.isEmployeeSsnUnique(idValue, ssnValue)) {
+			return Boolean.TRUE;
+		}
+		else {
+			return Boolean.FALSE;
+		}
 	}
 
 }

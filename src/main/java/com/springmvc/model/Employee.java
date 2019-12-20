@@ -31,7 +31,6 @@ public class Employee {
 	@Column(name = "NAME", nullable = false)
 	private String name;
 
-	
 	@NotNull
 	@DateTimeFormat(pattern= "dd/MM/yyyy")
 	@Column(name = "JOINING_DATE", nullable = false)
@@ -46,6 +45,14 @@ public class Employee {
 	@NotEmpty
 	@Column(name = "SSN",nullable = false)
 	private String ssn;
+	
+	@NotEmpty
+	@Column(name = "DESIGNATION",nullable = false)
+	private String designation;
+	
+	@NotEmpty
+	@Column(name = "GENDER",nullable = false)
+	private String gender;
 
 	public int getId() {
 		return id;
@@ -85,6 +92,23 @@ public class Employee {
 
 	public void setSsn(String ssn) {
 		this.ssn = ssn;
+	}
+
+	
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	@Override

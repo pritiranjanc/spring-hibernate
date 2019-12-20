@@ -66,6 +66,8 @@ public class EmployeeDaoImplTest extends EntityDaoImplTest{
 		employee.setSsn("12345");
 		employee.setSalary(new BigDecimal(10980));
 		employee.setJoiningDate(new Date());
+		employee.setDesignation("SSE");
+		employee.setGender("MALE");
 		return employee;
 	}
 
