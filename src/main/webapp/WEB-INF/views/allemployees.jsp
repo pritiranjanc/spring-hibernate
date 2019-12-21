@@ -12,14 +12,23 @@
 
 <body style="margin-left:175px;">
 	<h3>List of Employees</h3>	
-	<table border="1" class="list_employee">
+	<hr class="header_underlne"/>
+	<table class="list_employee" border="1">
 		<tr>
-			<th>Name</th><th>Joining Date</th><th>Salary</th><th>SSN</th><th>Actions</th>
+			<th>Name</th>
+			<th>Joining Date</th>
+			<th>Designation</th>
+			<th>Gender</th>
+			<th>Salary</th>
+			<th>SSN</th>
+			<th>Actions</th>
 		</tr>
 		<c:forEach items="${employees}" var="employee">
 			<tr>
 			<td>${employee.name}</td>
 			<td><fmt:formatDate pattern="dd/MM/yyyy" value="${employee.joiningDate}"/></td>
+			<td>${employee.designation}</td>
+			<td>${employee.gender}</td>
 			<td>${employee.salary}</td>
 			<td><a href="<c:url value='/edit-${employee.ssn}-employee' />">${employee.ssn}</a></td>
 			<td><a href="<c:url value='/delete-${employee.ssn}-employee' />" class="btn btn-danger">delete</a></td>

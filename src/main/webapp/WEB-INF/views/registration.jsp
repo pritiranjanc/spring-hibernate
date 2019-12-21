@@ -72,10 +72,10 @@
 				<div class="col-sm-2">SSN: </div>
 				<div class="col-md-3">
 					<form:input path="ssn" id="ssn" cssClass="form-control"/>
+					<div class="error hidden" id="ssnUnique">SSN already exist. Please fill in different value</div>
 				</div>
 				<div class="col-md-4">
 					<form:errors path="ssn" cssClass="error"/>
-					<div class="alert alert-danger hidden" id="ssnUnique">SSN already exist. Please fill in different value</div>
 				</div>
 		</div>
 		<br/>
